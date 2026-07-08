@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Willowbrook Family Clinic — Compassionate Care, Close to You</title>
+<meta name="description" content="Willowbrook Family Clinic offers trusted, compassionate healthcare for the whole family. Book an appointment today.">
+
+<!-- ============================= STYLES ============================= -->
+<style>
+  :root {
+    --color-primary: #0d7a8a;
+    --color-primary-dark: #075a66;
+    --color-teal-light: #e6f6f8;
+    --color-blue-light: #eef5fc;
+    --color-accent: #ff8a5c;
+    --color-accent-dark: #f26b38;
+    --color-text: #1f2d33;
+    --color-text-light: #5b6b72;
+    --color-white: #ffffff;
+    --color-border: #dbe7ea;
+    --shadow-soft: 0 10px 30px rgba(13, 122, 138, 0.08);
+    --shadow-card: 0 4px 16px rgba(13, 122, 138, 0.10);
+    --radius-lg: 20px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background: var(--color-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, svg { max-width: 100%; display: block; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 88px 0;
+  }
+
+  h1, h2, h3 { line-height: 1.2; margin: 0 0 16px; }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    background: var(--color-teal-light);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+
+  .section-heading {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 48px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+  }
+
+  .section-heading p {
+    color: var(--color-text-light);
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  /* ---------- Fade-in on scroll ---------- */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.98rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+  }
+  .btn:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  .btn:active { transform: translateY(1px); }
+
+  .btn-primary {
+    background: var(--color-accent);
+    color: var(--color-white);
+    box-shadow: 0 8px 20px rgba(242, 107, 56, 0.35);
+  }
+  .btn-primary:hover { background: var(--color-accent-dark); }
+
+  .btn-outline {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--color-white);
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+  .btn-outline:hover {
+    background: var(--color-white);
+    color: var(--color-primary-dark);
+  }
+
+  .btn-block { width: 100%; }
+
+  /* ============================= NAVBAR ============================= */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--color-primary-dark);
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--color-primary), #14a3b7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible {
+    background: var(--color-teal-light);
+    color: var(--color-primary-dark);
+  }
+
+  .nav-cta { display: none; }
+
+  .nav-toggle {
+    display: inline-flex;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+  }
+  .nav-toggle:focus-visible { outline: 3px solid var(--color-accent); }
+
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-primary-dark);
+    margin: 5px 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  /* ============================= HERO ============================= */
+  .hero {
+    position: relative;
+    color: var(--color-white);
+    background:
+      linear-gradient(120deg, rgba(7, 90, 102, 0.92), rgba(13, 122, 138, 0.85)),
+      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15), transparent 45%);
+    padding: 96px 0 64px;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    max-width: 640px;
+  }
+
+  .hero-content p.subheading {
+    font-size: 1.15rem;
+    max-width: 520px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 32px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .trust-item .icon-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    width: 100%;
+    max-width: 380px;
+    backdrop-filter: blur(6px);
+  }
+
+  .hero-card img {
+    border-radius: var(--radius-md);
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .hero-card-stat {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .hero-card-stat strong {
+    display: block;
+    font-size: 1.4rem;
+    color: var(--color-white);
+  }
+
+  /* ---------- Services (part of hero anchor target used by nav) ---------- */
+  .services {
+    background: var(--color-blue-light);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+
+  .service-card {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    padding: 28px 24px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--color-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(13, 122, 138, 0.15);
+  }
+
+  .service-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--color-teal-light);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .service-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .service-card p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  /* ============================= TESTIMONIALS ============================= */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+  }
+
+  .testimonial-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 26px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .testimonial-stars {
+    color: #f5a623;
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .testimonial-quote {
+    color: var(--color-text);
+    font-size: 0.98rem;
+    font-style: italic;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .testimonial-person {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--color-white);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .person-name {
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+
+  .person-role {
+    font-size: 0.82rem;
+    color: var(--color-text-light);
+  }
+
+  /* ============================= ENQUIRY FORM ============================= */
+  .enquiry {
+    background: var(--color-teal-light);
+  }
+
+  .form-wrapper {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    padding: 40px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media (min-width: 640px) {
+    .form-grid.two-col { grid-template-columns: 1fr 1fr; }
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-field label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text);
+  }
+
+  .form-field .required-mark {
+    color: var(--color-accent-dark);
+  }
+
+  .form-field input,
+  .form-field textarea {
+    font-family: inherit;
+    font-size: 0.98rem;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--color-border);
+    background: #fbfdfd;
+    color: var(--color-text);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(13, 122, 138, 0.12);
+  }
+
+  .form-field input[aria-invalid="true"],
+  .form-field textarea[aria-invalid="true"] {
+    border-color: #d64545;
+    background: #fff6f6;
+  }
+
+  .field-error {
+    font-size: 0.82rem;
+    color: #c0392b;
+    min-height: 1.1em;
+  }
+
+  .form-footer {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .form-success {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    background: #e8f7ee;
+    border: 1px solid #b9e6c9;
+    color: #1e7a44;
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .form-success.is-visible {
+    display: flex;
+  }
+
+  .form-note {
+    font-size: 0.82rem;
+    color: var(--color-text-light);
+    text-align: center;
+  }
+
+  /* ============================= FOOTER ============================= */
+  footer {
+    background: var(--color-primary-dark);
+    color: rgba(255, 255, 255, 0.85);
+    padding: 64px 0 24px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 720px) {
+    .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+  }
+
+  .footer-brand .brand { color: var(--color-white); margin-bottom: 14px; }
+
+  .footer-brand p {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 320px;
+  }
+
+  .footer-col h4 {
+    color: var(--color-white);
+    font-size: 0.95rem;
+    margin: 0 0 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col a,
+  .footer-col address {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-style: normal;
+    transition: color 0.15s ease;
+  }
+
+  .footer-col a:hover,
+  .footer-col a:focus-visible { color: var(--color-white); }
+
+  .social-links {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-links a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease;
+  }
+
+  .social-links a:hover,
+  .social-links a:focus-visible {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 24px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Skip link for keyboard users */
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    background: var(--color-white);
+    color: var(--color-primary-dark);
+    padding: 12px 18px;
+    border-radius: 0 0 8px 0;
+    z-index: 2000;
+    font-weight: 700;
+  }
+  .skip-link:focus {
+    left: 0;
+    top: 0;
+  }
+
+  /* ============================= RESPONSIVE ============================= */
+  @media (min-width: 860px) {
+    .hero-grid {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+    .nav-cta { display: inline-flex; }
+    .nav-toggle { display: none; }
+  }
+
+  @media (max-width: 859px) {
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--color-white);
+      flex-direction: column;
+      align-items: stretch;
+      padding: 12px;
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: var(--shadow-card);
+      display: none;
+      gap: 4px;
+    }
+    .nav-links.is-open { display: flex; }
+    .nav-links a { padding: 12px 16px; }
+  }
+
+  @media (max-width: 480px) {
+    section { padding: 64px 0; }
+    .form-wrapper { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#enquiry">Skip to appointment form</a>
+
+<!-- ============================= NAVBAR ============================= -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="brand" aria-label="Willowbrook Family Clinic home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21s-7.5-4.6-10-9.3C.4 8.1 2 4.5 5.6 4c2-.3 3.7.6 4.9 2.1C11.7 4.6 13.4 3.7 15.4 4c3.6.5 5.2 4.1 3.6 7.7C16.5 16.4 12 21 12 21z" fill="white" opacity="0.9"/>
+          <path d="M8 12h2.2l1-2.4 1.6 4.8 1-2.4H16" stroke="#0d7a8a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      Willowbrook Clinic
+    </a>
+
+    <nav id="primary-nav" class="nav-links" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#enquiry">Contact</a>
+    </nav>
+
+    <a href="#enquiry" class="btn btn-primary nav-cta">Book an Appointment</a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================= HERO SECTION ============================= -->
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <h1>Compassionate Care, Close to You</h1>
+      <p class="subheading">
+        Willowbrook Family Clinic brings together experienced physicians, modern
+        facilities, and a genuinely caring team — so your family always has
+        somewhere trusted to turn.
+      </p>
+      <div class="hero-actions">
+        <a href="#enquiry" class="btn btn-primary">Book an Appointment</a>
+        <a href="#services" class="btn btn-outline">Our Services</a>
+      </div>
+
+      <div class="trust-strip">
+        <div class="trust-item">
+          <span class="icon-circle" aria-hidden="true">🕒</span>
+          24/7 Support
+        </div>
+        <div class="trust-item">
+          <span class="icon-circle" aria-hidden="true">🩺</span>
+          Certified Doctors
+        </div>
+        <div class="trust-item">
+          <span class="icon-circle" aria-hidden="true">❤</span>
+          10,000+ Patients
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 260'%3E%3Crect width='400' height='260' rx='16' fill='%23e6f6f8'/%3E%3Ccircle cx='120' cy='110' r='50' fill='%23bfe4ea'/%3E%3Crect x='190' y='70' width='150' height='16' rx='8' fill='%23bfe4ea'/%3E%3Crect x='190' y='100' width='110' height='12' rx='6' fill='%23d7edf0'/%3E%3Crect x='40' y='180' width='320' height='14' rx='7' fill='%23d7edf0'/%3E%3Crect x='40' y='205' width='220' height='14' rx='7' fill='%23d7edf0'/%3E%3C/svg%3E" alt="Illustration of a friendly clinic consultation room">
+        <div class="hero-card-stat">
+          <div>
+            <strong>15+</strong>
+            Years of Care
+          </div>
+          <div>
+            <strong>98%</strong>
+            Patient Satisfaction
+          </div>
+          <div>
+            <strong>30+</strong>
+            Specialists
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= SERVICES ============================= -->
+<section id="services" class="services fade-in">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">What We Offer</span>
+      <h2>Comprehensive Care Under One Roof</h2>
+      <p>From routine check-ups to specialist referrals, our team is equipped to support your family's health at every stage of life.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon" aria-hidden="true">🩺</div>
+        <h3>General Consultation</h3>
+        <p>Same-day appointments with experienced family physicians for everyday health concerns.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" aria-hidden="true">🧑‍⚕️</div>
+        <h3>Specialist Referrals</h3>
+        <p>Fast-tracked access to trusted specialists across cardiology, dermatology, and more.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" aria-hidden="true">💉</div>
+        <h3>Vaccinations</h3>
+        <p>Up-to-date immunization programs for children and adults, in a comfortable setting.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" aria-hidden="true">🧪</div>
+        <h3>Lab & Diagnostics</h3>
+        <p>On-site testing with quick turnaround so you get answers without the wait.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= TESTIMONIALS ============================= -->
+<section id="testimonials" class="fade-in">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Patient Stories</span>
+      <h2>What Our Patients Say</h2>
+      <p>Real experiences from families who trust Willowbrook Clinic with their care.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <article class="testimonial-card">
+        <div class="testimonial-stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-quote">"Dr. Reyes took the time to actually listen. First clinic where I didn't feel rushed out the door."</p>
+        <div class="testimonial-person">
+          <div class="avatar" style="background:#0d7a8a;">SM</div>
+          <div>
+            <div class="person-name">Sarah Mitchell</div>
+            <div class="person-role">Patient since 2021</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-quote">"Booking online was effortless and the reminder texts meant I never missed a follow-up."</p>
+        <div class="testimonial-person">
+          <div class="avatar" style="background:#f26b38;">JT</div>
+          <div>
+            <div class="person-name">James Tan</div>
+            <div class="person-role">Patient since 2019</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-stars" aria-label="Rated 4.5 out of 5 stars">★★★★☆</div>
+        <p class="testimonial-quote">"Brought my daughter in for her vaccinations — the staff were so patient and kind with her."</p>
+        <div class="testimonial-person">
+          <div class="avatar" style="background:#2e8b57;">AR</div>
+          <div>
+            <div class="person-name">Aisha Rahman</div>
+            <div class="person-role">Patient since 2022</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-quote">"The lab results came back the same day, and the doctor called personally to walk me through them."</p>
+        <div class="testimonial-person">
+          <div class="avatar" style="background:#6a5acd;">DK</div>
+          <div>
+            <div class="person-name">David Kim</div>
+            <div class="person-role">Patient since 2020</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= ENQUIRY FORM ============================= -->
+<section id="enquiry" class="enquiry fade-in">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Get in Touch</span>
+      <h2>Request an Appointment</h2>
+      <p>Fill in your details and our care team will confirm your appointment within one business day.</p>
+    </div>
+
+    <div class="form-wrapper">
+      <div id="formSuccess" class="form-success" role="status" aria-live="polite">
+        <span aria-hidden="true">✅</span>
+        <span id="formSuccessText">Thank you! We'll contact you shortly.</span>
+      </div>
+
+      <form id="enquiryForm" novalidate>
+        <div class="form-grid two-col">
+          <div class="form-field">
+            <label for="fullName">Full Name <span class="required-mark">*</span></label>
+            <input type="text" id="fullName" name="fullName" autocomplete="name" aria-describedby="fullNameError" required>
+            <span class="field-error" id="fullNameError"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email <span class="required-mark">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" aria-describedby="emailError" required>
+            <span class="field-error" id="emailError"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="phone">Phone <span class="required-mark">*</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" aria-describedby="phoneError" required>
+            <span class="field-error" id="phoneError"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="preferredDate">Preferred Date</label>
+            <input type="date" id="preferredDate" name="preferredDate" aria-describedby="preferredDateError">
+            <span class="field-error" id="preferredDateError"></span>
+          </div>
+        </div>
+
+        <div class="form-grid" style="margin-top: 20px;">
+          <div class="form-field">
+            <label for="message">Message / Reason for Visit</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us briefly what you'd like to be seen for..."></textarea>
+          </div>
+        </div>
+
+        <div class="form-footer">
+          <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+          <p class="form-note">By submitting, you agree to be contacted regarding your appointment request. We never share your information with third parties.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 21s-7.5-4.6-10-9.3C.4 8.1 2 4.5 5.6 4c2-.3 3.7.6 4.9 2.1C11.7 4.6 13.4 3.7 15.4 4c3.6.5 5.2 4.1 3.6 7.7C16.5 16.4 12 21 12 21z" fill="white" opacity="0.9"/>
+            </svg>
+          </span>
+          Willowbrook Clinic
+        </div>
+        <p>Trusted, compassionate healthcare for the whole family — every visit, every time.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#enquiry">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><address>128 Maple Grove Ave,<br>Springfield, ST 62704</address></li>
+          <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+          <li><a href="mailto:hello@willowbrookclinic.example">hello@willowbrookclinic.example</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#" aria-label="Willowbrook Clinic on Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="#" aria-label="Willowbrook Clinic on Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 2c2.7 0 3 0 4.1.06 1.1.05 1.8.2 2.4.45.7.27 1.2.6 1.7 1.1.5.5.9 1 1.1 1.7.24.6.4 1.3.45 2.4.06 1.1.06 1.4.06 4.1s0 3-.06 4.1c-.05 1.1-.2 1.8-.45 2.4a4.6 4.6 0 0 1-1.1 1.7c-.5.5-1 .9-1.7 1.1-.6.24-1.3.4-2.4.45-1.1.06-1.4.06-4.1.06s-3 0-4.1-.06c-1.1-.05-1.8-.2-2.4-.45a4.6 4.6 0 0 1-1.7-1.1 4.6 4.6 0 0 1-1.1-1.7c-.24-.6-.4-1.3-.45-2.4C2 15 2 14.7 2 12s0-3 .06-4.1c.05-1.1.2-1.8.45-2.4.27-.7.6-1.2 1.1-1.7.5-.5 1-.9 1.7-1.1.6-.24 1.3-.4 2.4-.45C9 2 9.3 2 12 2zm0 1.8c-2.6 0-2.9 0-4 .06-.9.04-1.4.18-1.7.3-.4.16-.7.35-1 .65-.3.3-.5.6-.65 1-.12.3-.26.8-.3 1.7-.05 1.1-.06 1.4-.06 4s0 2.9.06 4c.04.9.18 1.4.3 1.7.16.4.35.7.65 1 .3.3.6.5 1 .65.3.12.8.26 1.7.3 1.1.05 1.4.06 4 .06s2.9 0 4-.06c.9-.04 1.4-.18 1.7-.3.4-.16.7-.35 1-.65.3-.3.5-.6.65-1 .12-.3.26-.8.3-1.7.05-1.1.06-1.4.06-4s0-2.9-.06-4c-.04-.9-.18-1.4-.3-1.7a2.8 2.8 0 0 0-.65-1 2.8 2.8 0 0 0-1-.65c-.3-.12-.8-.26-1.7-.3-1.1-.06-1.4-.06-4-.06zm0 3.2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm5.2-2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
+          </a>
+          <a href="#" aria-label="Willowbrook Clinic on Twitter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M22 5.9c-.7.3-1.5.5-2.3.6.8-.5 1.4-1.3 1.7-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.7 11.7 0 0 1 3.2 4.6a4.1 4.1 0 0 0 1.3 5.5c-.6 0-1.3-.2-1.8-.5v.1c0 2 1.4 3.6 3.3 4a4.1 4.1 0 0 1-1.8.07 4.1 4.1 0 0 0 3.8 2.9A8.3 8.3 0 0 1 2 18.4a11.6 11.6 0 0 0 6.3 1.9c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="currentYear"></span> Willowbrook Family Clinic. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================= SCRIPT ============================= -->
+<script>
+  (function () {
+    'use strict';
+
+    /* ---------- Mobile nav toggle ---------- */
+    var navToggle = document.getElementById('navToggle');
+    var navLinks = document.getElementById('primary-nav');
+
+    navToggle.addEventListener('click', function () {
+      var isOpen = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close mobile menu after a nav link is clicked
+    navLinks.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        navLinks.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    /* ---------- Fade-in on scroll ---------- */
+    var fadeEls = document.querySelectorAll('.fade-in');
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      fadeEls.forEach(function (el) { observer.observe(el); });
+    } else {
+      // Fallback: no IntersectionObserver support, just show everything
+      fadeEls.forEach(function (el) { el.classList.add('is-visible'); });
+    }
+
+    /* ---------- Footer year ---------- */
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    /* ---------- Enquiry form validation & submission ---------- */
+    var form = document.getElementById('enquiryForm');
+    var formSuccess = document.getElementById('formSuccess');
+
+    var fields = {
+      fullName: {
+        el: document.getElementById('fullName'),
+        errorEl: document.getElementById('fullNameError'),
+        validate: function (value) {
+          if (!value.trim()) return 'Please enter your full name.';
+          if (value.trim().length < 2) return 'Name looks too short.';
+          return '';
+        }
+      },
+      email: {
+        el: document.getElementById('email'),
+        errorEl: document.getElementById('emailError'),
+        validate: function (value) {
+          if (!value.trim()) return 'Please enter your email address.';
+          var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailPattern.test(value.trim())) return 'Please enter a valid email address.';
+          return '';
+        }
+      },
+      phone: {
+        el: document.getElementById('phone'),
+        errorEl: document.getElementById('phoneError'),
+        validate: function (value) {
+          if (!value.trim()) return 'Please enter your phone number.';
+          var digitsOnly = value.replace(/[^0-9]/g, '');
+          if (digitsOnly.length < 7) return 'Please enter a valid phone number.';
+          return '';
+        }
+      },
+      preferredDate: {
+        el: document.getElementById('preferredDate'),
+        errorEl: document.getElementById('preferredDateError'),
+        validate: function () { return ''; } // optional field
+      }
+    };
+
+    function setFieldError(field, message) {
+      field.errorEl.textContent = message;
+      if (message) {
+        field.el.setAttribute('aria-invalid', 'true');
+      } else {
+        field.el.removeAttribute('aria-invalid');
+      }
+    }
+
+    // Clear a field's error as the user types/corrects it
+    Object.keys(fields).forEach(function (key) {
+      var field = fields[key];
+      field.el.addEventListener('input', function () {
+        var error = field.validate(field.el.value);
+        setFieldError(field, error);
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      formSuccess.classList.remove('is-visible');
+
+      var isValid = true;
+      Object.keys(fields).forEach(function (key) {
+        var field = fields[key];
+        var error = field.validate(field.el.value);
+        setFieldError(field, error);
+        if (error) isValid = false;
+      });
+
+      if (!isValid) {
+        // Focus the first invalid field for accessibility
+        var firstInvalidKey = Object.keys(fields).find(function (key) {
+          return fields[key].errorEl.textContent;
+        });
+        if (firstInvalidKey) fields[firstInvalidKey].el.focus();
+        return;
+      }
+
+      var formData = {
+        fullName: fields.fullName.el.value.trim(),
+        email: fields.email.el.value.trim(),
+        phone: fields.phone.el.value.trim(),
+        preferredDate: fields.preferredDate.el.value,
+        message: document.getElementById('message').value.trim(),
+        submittedAt: new Date().toISOString()
+      };
+
+      // ---------------------------------------------------------------
+      // TODO: Replace this console.log with a real API call, e.g.:
+      //
+      // fetch('/api/appointments', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(formData)
+      // });
+      // ---------------------------------------------------------------
+      console.log('Appointment enquiry submitted:', formData);
+
+      formSuccess.classList.add('is-visible');
+      form.reset();
+      Object.keys(fields).forEach(function (key) { setFieldError(fields[key], ''); });
+      formSuccess.focus && formSuccess.focus();
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -12,15 +12,18 @@ JavaScript in one `index.html` file — no framework, no build step, no dependen
 ## Features
 
 - Sticky, responsive navbar with mobile hamburger menu and smooth-scroll anchor links
-- Hero section with gradient background, call-to-action buttons, and a trust-indicator strip
-- Services grid, patient testimonials with star ratings and initials avatars
+- Hero section with an animated willow-tree line illustration, headline, and a
+  trust-indicator strip
+- "Why Willowbrook" trust tiles, an editorial services list, a "Meet the Team" doctor
+  directory, and patient testimonials with star ratings and initials avatars
 - Appointment enquiry form with client-side validation (required fields, email format,
   phone format), inline error messages, and a success confirmation — no backend required
   (submission is logged to the browser console, with a marked spot to wire up a real API)
 - Footer with contact details, quick links, social placeholders, and an auto-updating
   copyright year
-- Semantic HTML5, labelled form fields, keyboard-friendly navigation, fade-in-on-scroll
-  animations
+- Custom SVG icon set (no emoji), organic wave dividers between sections, dark-mode-aware
+  color tokens, `prefers-reduced-motion` support, semantic HTML5, and keyboard-friendly
+  navigation
 
 ## Tech Stack
 

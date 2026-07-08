@@ -3,100 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Willowbrook Family Clinic — Compassionate Care, Close to You</title>
-<meta name="description" content="Willowbrook Family Clinic offers trusted, compassionate healthcare for the whole family. Book an appointment today.">
+<title>Willowbrook Family Clinic — Compassionate Care, Rooted in Community</title>
+<meta name="description" content="Willowbrook Family Clinic offers same-day appointments, multilingual care, and trusted family medicine. Book your visit today.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 
 <!-- ============================= STYLES ============================= -->
 <style>
+  /* ---------- Design tokens ---------- */
   :root {
-    --color-primary: #0d7a8a;
-    --color-primary-dark: #075a66;
-    --color-teal-light: #e6f6f8;
-    --color-blue-light: #eef5fc;
-    --color-accent: #ff8a5c;
-    --color-accent-dark: #f26b38;
-    --color-text: #1f2d33;
-    --color-text-light: #5b6b72;
-    --color-white: #ffffff;
-    --color-border: #dbe7ea;
-    --shadow-soft: 0 10px 30px rgba(13, 122, 138, 0.08);
-    --shadow-card: 0 4px 16px rgba(13, 122, 138, 0.10);
-    --radius-lg: 20px;
-    --radius-md: 12px;
-    --radius-sm: 8px;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --ink: #0B2320;
+    --pine-deep: #0F2A26;
+    --pine: #1F6E5C;
+    --pine-soft: #2C7F6A;
+    --sage: #B9C9B2;
+    --mist: #EDF1EA;
+    --paper: #F8F9F4;
+    --marigold: #DD8C1E;
+    --marigold-deep: #B26E13;
+    --text-body: #33403A;
+    --text-muted: #5B6B62;
+    --border-soft: #DAE3D6;
+    --white: #ffffff;
+
+    --shadow-soft: 0 20px 48px rgba(15, 42, 38, 0.10);
+    --shadow-card: 0 6px 20px rgba(15, 42, 38, 0.08);
+    --radius-lg: 22px;
+    --radius-md: 14px;
+    --radius-sm: 9px;
+
+    --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --mist: #16302B;
+      --paper: #122824;
+      --border-soft: #24473E;
+      --text-body: #DCE6DF;
+      --text-muted: #9DB3A6;
+      --white: #16302B;
+      --sage: #3E5B4C;
+    }
   }
 
   * { box-sizing: border-box; }
 
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
     margin: 0;
     font-family: var(--font-body);
-    color: var(--color-text);
-    background: var(--color-white);
-    line-height: 1.6;
+    color: var(--text-body);
+    background: var(--paper);
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
 
   img, svg { max-width: 100%; display: block; }
-
   a { color: inherit; text-decoration: none; }
 
   .container {
     width: 100%;
-    max-width: 1140px;
+    max-width: 1180px;
     margin: 0 auto;
     padding: 0 24px;
   }
 
-  section {
-    padding: 88px 0;
+  section { padding: 96px 0; }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    line-height: 1.15;
+    margin: 0 0 18px;
+    text-wrap: balance;
+    font-weight: 600;
   }
 
-  h1, h2, h3 { line-height: 1.2; margin: 0 0 16px; }
-
   .eyebrow {
-    display: inline-block;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--color-primary);
-    background: var(--color-teal-light);
-    padding: 6px 14px;
-    border-radius: 999px;
-    margin-bottom: 16px;
+    color: var(--pine);
+    margin-bottom: 18px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 20px;
+    height: 1.5px;
+    background: var(--marigold);
+    display: inline-block;
   }
 
   .section-heading {
-    text-align: center;
-    max-width: 640px;
-    margin: 0 auto 48px;
+    max-width: 620px;
+    margin: 0 0 56px;
   }
+  .section-heading.centered { margin-inline: auto; text-align: center; }
+  .section-heading.centered .eyebrow::before { display: none; }
 
-  .section-heading h2 {
-    font-size: clamp(1.7rem, 3vw, 2.4rem);
-  }
-
-  .section-heading p {
-    color: var(--color-text-light);
-    font-size: 1.05rem;
-    margin: 0;
-  }
+  .section-heading h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); }
+  .section-heading p { color: var(--text-muted); font-size: 1.05rem; margin: 0; max-width: 54ch; }
+  .section-heading.centered p { margin-inline: auto; }
 
   /* ---------- Fade-in on scroll ---------- */
   .fade-in {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(22px);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
-  .fade-in.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+  .fade-in.is-visible { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fade-in { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .willow-branches, .willow-leaves { animation: none !important; }
   }
 
   /* ---------- Buttons ---------- */
@@ -105,48 +135,57 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 14px 28px;
+    padding: 15px 30px;
     border-radius: 999px;
     font-weight: 600;
     font-size: 0.98rem;
-    border: 2px solid transparent;
+    font-family: var(--font-body);
+    border: 1.5px solid transparent;
     cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease, border-color .15s ease;
     white-space: nowrap;
   }
-  .btn:focus-visible {
-    outline: 3px solid var(--color-accent);
-    outline-offset: 2px;
-  }
+  .btn:focus-visible { outline: 3px solid var(--marigold); outline-offset: 2px; }
   .btn:active { transform: translateY(1px); }
 
   .btn-primary {
-    background: var(--color-accent);
-    color: var(--color-white);
-    box-shadow: 0 8px 20px rgba(242, 107, 56, 0.35);
+    background: var(--marigold);
+    color: #241300;
+    box-shadow: 0 10px 24px rgba(221, 140, 30, 0.35);
   }
-  .btn-primary:hover { background: var(--color-accent-dark); }
+  .btn-primary:hover { background: var(--marigold-deep); }
 
   .btn-outline {
-    background: rgba(255, 255, 255, 0.08);
-    color: var(--color-white);
-    border-color: rgba(255, 255, 255, 0.7);
+    background: transparent;
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.55);
   }
-  .btn-outline:hover {
-    background: var(--color-white);
-    color: var(--color-primary-dark);
+  .btn-outline:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(255,255,255,0.9); }
+
+  .btn-outline-pine {
+    background: transparent;
+    color: var(--pine);
+    border-color: var(--pine);
   }
+  .btn-outline-pine:hover { background: var(--pine); color: var(--white); }
 
   .btn-block { width: 100%; }
+
+  /* ---------- Icon sprite ---------- */
+  .icon { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+  /* ---------- Wave divider ---------- */
+  .wave { line-height: 0; }
+  .wave svg { width: 100%; height: 52px; display: block; }
 
   /* ============================= NAVBAR ============================= */
   .navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(248, 249, 244, 0.88);
     backdrop-filter: saturate(180%) blur(10px);
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--border-soft);
   }
 
   .nav-inner {
@@ -154,7 +193,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 14px 24px;
-    max-width: 1140px;
+    max-width: 1180px;
     margin: 0 auto;
   }
 
@@ -162,27 +201,29 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    font-weight: 800;
-    font-size: 1.15rem;
-    color: var(--color-primary-dark);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--pine-deep);
   }
 
   .brand-mark {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     border-radius: 10px;
-    background: linear-gradient(135deg, var(--color-primary), #14a3b7);
+    background: var(--pine);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--white);
     flex-shrink: 0;
   }
+  .brand-mark .icon { width: 19px; height: 19px; stroke: white; }
 
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -192,15 +233,14 @@
     padding: 10px 14px;
     border-radius: 999px;
     font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--color-text);
+    font-size: 0.94rem;
+    color: var(--text-body);
     transition: background 0.15s ease, color 0.15s ease;
   }
 
-  .nav-links a:hover,
-  .nav-links a:focus-visible {
-    background: var(--color-teal-light);
-    color: var(--color-primary-dark);
+  .nav-links a:hover, .nav-links a:focus-visible {
+    background: var(--mist);
+    color: var(--pine-deep);
   }
 
   .nav-cta { display: none; }
@@ -213,13 +253,12 @@
     padding: 8px;
     border-radius: 8px;
   }
-  .nav-toggle:focus-visible { outline: 3px solid var(--color-accent); }
-
+  .nav-toggle:focus-visible { outline: 3px solid var(--marigold); }
   .nav-toggle span {
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--color-primary-dark);
+    background: var(--pine-deep);
     margin: 5px 0;
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
@@ -227,151 +266,220 @@
   /* ============================= HERO ============================= */
   .hero {
     position: relative;
-    color: var(--color-white);
-    background:
-      linear-gradient(120deg, rgba(7, 90, 102, 0.92), rgba(13, 122, 138, 0.85)),
-      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15), transparent 45%);
-    padding: 96px 0 64px;
+    color: var(--white);
+    background: var(--pine-deep);
+    padding: 84px 0 72px;
     overflow: hidden;
   }
 
   .hero-grid {
+    position: relative;
+    z-index: 2;
     display: grid;
     grid-template-columns: 1fr;
     gap: 40px;
     align-items: center;
   }
 
+  .hero-content .eyebrow { color: var(--sage); }
+  .hero-content .eyebrow::before { background: var(--marigold); }
+
   .hero-content h1 {
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    max-width: 640px;
+    font-size: clamp(2.2rem, 5.4vw, 3.6rem);
+    max-width: 620px;
+    color: var(--white);
   }
 
   .hero-content p.subheading {
-    font-size: 1.15rem;
-    max-width: 520px;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 32px;
+    font-size: 1.16rem;
+    max-width: 500px;
+    color: rgba(237, 241, 234, 0.86);
+    margin-bottom: 34px;
   }
 
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 48px;
-  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 52px; }
 
   .trust-strip {
     display: flex;
     flex-wrap: wrap;
-    gap: 28px;
-    padding-top: 28px;
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    gap: 36px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
   }
 
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.95);
-  }
-
-  .trust-item .icon-circle {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .hero-visual {
-    display: flex;
-    justify-content: center;
-  }
-
-  .hero-card {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: var(--radius-lg);
-    padding: 28px;
-    width: 100%;
-    max-width: 380px;
-    backdrop-filter: blur(6px);
-  }
-
-  .hero-card img {
-    border-radius: var(--radius-md);
-    width: 100%;
-    margin-bottom: 16px;
-  }
-
-  .hero-card-stat {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.9);
-  }
-
-  .hero-card-stat strong {
+  .trust-item strong {
     display: block;
-    font-size: 1.4rem;
-    color: var(--color-white);
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+  .trust-item span {
+    font-size: 0.86rem;
+    color: rgba(237, 241, 234, 0.75);
   }
 
-  /* ---------- Services (part of hero anchor target used by nav) ---------- */
-  .services {
-    background: var(--color-blue-light);
+  /* ---------- Willow tree hero motif ---------- */
+  .hero-visual { position: relative; display: flex; justify-content: center; z-index: 2; }
+
+  .willow-svg { width: 100%; max-width: 420px; overflow: visible; }
+  .willow-trunk { stroke: rgba(237, 241, 234, 0.55); stroke-width: 3; fill: none; }
+  .willow-branches path {
+    stroke: rgba(237, 241, 234, 0.45);
+    stroke-width: 1.6;
+    fill: none;
+    transform-origin: 210px 120px;
+    animation: sway 7s ease-in-out infinite alternate;
+  }
+  .willow-branches path:nth-child(2) { animation-delay: -1.5s; }
+  .willow-branches path:nth-child(3) { animation-delay: -3s; }
+  .willow-branches path:nth-child(4) { animation-delay: -4.5s; }
+  .willow-leaves circle { fill: var(--marigold); opacity: 0.85; }
+  .willow-leaves circle:nth-child(odd) { fill: var(--sage); opacity: 0.65; }
+
+  @keyframes sway {
+    from { transform: rotate(-1.2deg); }
+    to { transform: rotate(1.4deg); }
   }
 
-  .services-grid {
+  .hero-bg-tint {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 82% 15%, rgba(221, 140, 30, 0.16), transparent 45%);
+    z-index: 1;
+  }
+
+  /* ============================= WHY CHOOSE US ============================= */
+  .why { background: var(--mist); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 4px;
+    background: var(--border-soft);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+  }
+
+  .why-tile {
+    background: var(--paper);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .why-tile .icon-badge {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--mist);
+    color: var(--pine);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .why-tile h3 { font-size: 1.08rem; margin-bottom: 4px; }
+  .why-tile p { color: var(--text-muted); font-size: 0.94rem; margin: 0; }
+
+  /* ============================= SERVICES (editorial list) ============================= */
+  .services { background: var(--paper); }
+
+  .services-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .service-list { list-style: none; margin: 0; padding: 0; }
+
+  .service-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    padding: 26px 0;
+    border-top: 1px solid var(--border-soft);
+  }
+  .service-list li:last-child .service-row { border-bottom: 1px solid var(--border-soft); }
+
+  .service-row .icon-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--mist);
+    color: var(--pine);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-row h3 { font-size: 1.14rem; margin-bottom: 6px; }
+  .service-row p { color: var(--text-muted); margin: 0; max-width: 56ch; }
+
+  .services-note {
+    align-self: start;
+    background: var(--mist);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    position: sticky;
+    top: 100px;
+  }
+  .services-note .eyebrow { color: var(--pine); }
+  .services-note h3 { font-size: 1.25rem; }
+  .services-note p { color: var(--text-muted); font-size: 0.96rem; }
+  .services-note .btn { margin-top: 12px; }
+
+  /* ============================= MEET THE DOCTORS ============================= */
+  .doctors { background: var(--pine-deep); color: var(--white); }
+  .doctors .section-heading p { color: rgba(237, 241, 234, 0.75); }
+  .doctors .eyebrow { color: var(--sage); }
+  .doctors .eyebrow::before { background: var(--marigold); }
+
+  .doctors-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
+    gap: 28px;
   }
 
-  .service-card {
-    background: var(--color-white);
+  .doctor-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: var(--radius-md);
     padding: 28px 24px;
-    box-shadow: var(--shadow-card);
-    border: 1px solid var(--color-border);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .service-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 32px rgba(13, 122, 138, 0.15);
-  }
-
-  .service-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    background: var(--color-teal-light);
-    color: var(--color-primary);
+  .doctor-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--ink);
     margin-bottom: 18px;
   }
 
-  .service-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
+  .doctor-card h3 { font-size: 1.12rem; margin-bottom: 2px; color: var(--white); }
+  .doctor-specialty {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--marigold);
+    display: block;
+    margin-bottom: 14px;
   }
-
-  .service-card p {
-    color: var(--color-text-light);
-    font-size: 0.95rem;
-    margin: 0;
-  }
+  .doctor-card p { color: rgba(237, 241, 234, 0.78); font-size: 0.94rem; margin: 0; }
 
   /* ============================= TESTIMONIALS ============================= */
+  .testimonials { background: var(--paper); }
+
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -379,267 +487,182 @@
   }
 
   .testimonial-card {
-    background: var(--color-white);
-    border: 1px solid var(--color-border);
+    background: var(--white);
+    border: 1px solid var(--border-soft);
+    border-top: 3px solid var(--marigold);
     border-radius: var(--radius-md);
-    padding: 26px;
+    padding: 28px 26px;
     box-shadow: var(--shadow-card);
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .testimonial-stars {
-    color: #f5a623;
-    font-size: 1rem;
-    letter-spacing: 2px;
-  }
-
-  .testimonial-quote {
-    color: var(--color-text);
-    font-size: 0.98rem;
-    font-style: italic;
-    margin: 0;
-    flex-grow: 1;
-  }
-
-  .testimonial-person {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    color: var(--color-white);
-    font-size: 0.9rem;
-    flex-shrink: 0;
-  }
-
-  .person-name {
-    font-weight: 700;
-    font-size: 0.92rem;
-  }
-
-  .person-role {
-    font-size: 0.82rem;
-    color: var(--color-text-light);
-  }
-
-  /* ============================= ENQUIRY FORM ============================= */
-  .enquiry {
-    background: var(--color-teal-light);
-  }
-
-  .form-wrapper {
-    background: var(--color-white);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
-    padding: 40px;
-    max-width: 760px;
-    margin: 0 auto;
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  @media (min-width: 640px) {
-    .form-grid.two-col { grid-template-columns: 1fr 1fr; }
-  }
-
-  .form-field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .form-field label {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--color-text);
-  }
-
-  .form-field .required-mark {
-    color: var(--color-accent-dark);
-  }
-
-  .form-field input,
-  .form-field textarea {
-    font-family: inherit;
-    font-size: 0.98rem;
-    padding: 12px 14px;
-    border-radius: var(--radius-sm);
-    border: 1.5px solid var(--color-border);
-    background: #fbfdfd;
-    color: var(--color-text);
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
-  }
-
-  .form-field input:focus,
-  .form-field textarea:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 4px rgba(13, 122, 138, 0.12);
-  }
-
-  .form-field input[aria-invalid="true"],
-  .form-field textarea[aria-invalid="true"] {
-    border-color: #d64545;
-    background: #fff6f6;
-  }
-
-  .field-error {
-    font-size: 0.82rem;
-    color: #c0392b;
-    min-height: 1.1em;
-  }
-
-  .form-footer {
-    margin-top: 8px;
     display: flex;
     flex-direction: column;
     gap: 16px;
   }
 
+  .rating { display: flex; gap: 4px; }
+  .rating .icon { width: 16px; height: 16px; stroke: none; }
+  .rating .icon.is-filled { fill: var(--marigold); }
+  .rating .icon.is-empty { fill: var(--border-soft); }
+
+  .testimonial-quote {
+    font-family: var(--font-display);
+    color: var(--text-body);
+    font-size: 1.04rem;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .testimonial-person { display: flex; align-items: center; gap: 12px; }
+
+  .avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+
+  .person-name { font-weight: 700; font-size: 0.92rem; }
+  .person-role { font-size: 0.8rem; color: var(--text-muted); }
+
+  /* ============================= ENQUIRY FORM ============================= */
+  .enquiry { background: var(--mist); }
+
+  .form-wrapper {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    padding: 44px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .form-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  @media (min-width: 640px) { .form-grid.two-col { grid-template-columns: 1fr 1fr; } }
+
+  .form-field { display: flex; flex-direction: column; gap: 6px; }
+  .form-field label { font-weight: 600; font-size: 0.9rem; color: var(--text-body); }
+  .form-field .required-mark { color: var(--marigold-deep); }
+
+  .form-field input, .form-field textarea {
+    font-family: inherit;
+    font-size: 0.98rem;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--border-soft);
+    background: var(--paper);
+    color: var(--text-body);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .form-field input:focus, .form-field textarea:focus {
+    outline: none;
+    border-color: var(--pine);
+    box-shadow: 0 0 0 4px rgba(31, 110, 92, 0.14);
+  }
+
+  .form-field input[aria-invalid="true"], .form-field textarea[aria-invalid="true"] {
+    border-color: #C0392B;
+    background: #FDF3F1;
+  }
+
+  .field-error { font-size: 0.82rem; color: #C0392B; min-height: 1.1em; }
+
+  .form-footer { margin-top: 8px; display: flex; flex-direction: column; gap: 16px; }
+
   .form-success {
     display: none;
     align-items: center;
     gap: 10px;
-    background: #e8f7ee;
-    border: 1px solid #b9e6c9;
-    color: #1e7a44;
+    background: #E9F5EC;
+    border: 1px solid #BCDFC5;
+    color: #1E6B37;
     padding: 14px 18px;
     border-radius: var(--radius-sm);
     font-weight: 600;
     font-size: 0.95rem;
   }
+  .form-success.is-visible { display: flex; }
+  .form-success .icon { stroke: #1E6B37; }
 
-  .form-success.is-visible {
-    display: flex;
-  }
-
-  .form-note {
-    font-size: 0.82rem;
-    color: var(--color-text-light);
-    text-align: center;
-  }
+  .form-note { font-size: 0.82rem; color: var(--text-muted); text-align: center; }
 
   /* ============================= FOOTER ============================= */
-  footer {
-    background: var(--color-primary-dark);
-    color: rgba(255, 255, 255, 0.85);
-    padding: 64px 0 24px;
-  }
+  footer { background: var(--ink); color: rgba(237, 241, 234, 0.82); padding: 68px 0 26px; }
 
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    margin-bottom: 40px;
-  }
+  .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 44px; }
+  @media (min-width: 720px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
 
-  @media (min-width: 720px) {
-    .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
-  }
-
-  .footer-brand .brand { color: var(--color-white); margin-bottom: 14px; }
-
-  .footer-brand p {
-    font-size: 0.92rem;
-    color: rgba(255, 255, 255, 0.7);
-    max-width: 320px;
-  }
+  .footer-brand .brand { color: var(--white); margin-bottom: 14px; }
+  .footer-brand p { font-size: 0.92rem; color: rgba(237, 241, 234, 0.65); max-width: 300px; }
 
   .footer-col h4 {
-    color: var(--color-white);
-    font-size: 0.95rem;
-    margin: 0 0 16px;
+    font-family: var(--font-mono);
+    color: var(--white);
+    font-size: 0.78rem;
+    margin: 0 0 18px;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.12em;
+    font-weight: 600;
   }
 
-  .footer-col ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer-col a,
-  .footer-col address {
+  .footer-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+  .footer-col a, .footer-col address {
     font-size: 0.92rem;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(237, 241, 234, 0.72);
     font-style: normal;
     transition: color 0.15s ease;
   }
+  .footer-col a:hover, .footer-col a:focus-visible { color: var(--marigold); }
 
-  .footer-col a:hover,
-  .footer-col a:focus-visible { color: var(--color-white); }
-
-  .social-links {
-    display: flex;
-    gap: 10px;
-  }
-
+  .social-links { display: flex; gap: 10px; }
   .social-links a {
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background 0.15s ease;
   }
-
-  .social-links a:hover,
-  .social-links a:focus-visible {
-    background: rgba(255, 255, 255, 0.25);
-  }
+  .social-links a:hover, .social-links a:focus-visible { background: rgba(221, 140, 30, 0.25); }
+  .social-links .icon { width: 16px; height: 16px; stroke: rgba(237,241,234,0.9); }
 
   .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
     padding-top: 24px;
     text-align: center;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.84rem;
+    color: rgba(237, 241, 234, 0.5);
   }
 
-  /* Skip link for keyboard users */
   .skip-link {
     position: absolute;
     left: -999px;
     top: auto;
-    background: var(--color-white);
-    color: var(--color-primary-dark);
+    background: var(--white);
+    color: var(--pine-deep);
     padding: 12px 18px;
     border-radius: 0 0 8px 0;
     z-index: 2000;
     font-weight: 700;
   }
-  .skip-link:focus {
-    left: 0;
-    top: 0;
-  }
+  .skip-link:focus { left: 0; top: 0; }
 
   /* ============================= RESPONSIVE ============================= */
   @media (min-width: 860px) {
-    .hero-grid {
-      grid-template-columns: 1.1fr 0.9fr;
-    }
+    .hero-grid { grid-template-columns: 1.15fr 0.85fr; }
     .nav-cta { display: inline-flex; }
     .nav-toggle { display: none; }
+    .services-layout { grid-template-columns: 1fr 300px; }
   }
 
   @media (max-width: 859px) {
@@ -648,22 +671,24 @@
       top: 100%;
       left: 0;
       right: 0;
-      background: var(--color-white);
+      background: var(--paper);
       flex-direction: column;
       align-items: stretch;
       padding: 12px;
-      border-bottom: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--border-soft);
       box-shadow: var(--shadow-card);
       display: none;
       gap: 4px;
     }
     .nav-links.is-open { display: flex; }
     .nav-links a { padding: 12px 16px; }
+    .services-note { position: static; }
   }
 
   @media (max-width: 480px) {
-    section { padding: 64px 0; }
+    section { padding: 68px 0; }
     .form-wrapper { padding: 28px 20px; }
+    .service-row { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -671,22 +696,77 @@
 
 <a class="skip-link" href="#enquiry">Skip to appointment form</a>
 
+<!-- ============================= ICON SPRITE (hidden defs) ============================= -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="icon-leaf" viewBox="0 0 24 24">
+      <path d="M12 21s-7.5-4.6-10-9.3C.4 8.1 2 4.5 5.6 4c2-.3 3.7.6 4.9 2.1C11.7 4.6 13.4 3.7 15.4 4c3.6.5 5.2 4.1 3.6 7.7C16.5 16.4 12 21 12 21z"/>
+      <path d="M8 12h2.2l1-2.4 1.6 4.8 1-2.4H16"/>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24">
+      <path d="M12 2.6l2.9 6 6.6.8-4.8 4.6 1.2 6.5-5.9-3.2-5.9 3.2 1.2-6.5-4.8-4.6 6.6-.8z"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 7v5l3.5 2"/>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24">
+      <path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/>
+      <path d="M8.5 12l2.3 2.3 4.7-4.7"/>
+    </symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M3 12h18M12 3c2.4 2.5 3.6 5.6 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.6-3.6-9S9.6 5.5 12 3z"/>
+    </symbol>
+    <symbol id="icon-video" viewBox="0 0 24 24">
+      <rect x="3" y="6" width="12" height="12" rx="2"/>
+      <path d="M15 10l6-3v10l-6-3"/>
+    </symbol>
+    <symbol id="icon-stethoscope" viewBox="0 0 24 24">
+      <path d="M6 4v6a4 4 0 0 0 8 0V4"/>
+      <circle cx="18" cy="15" r="2.6"/>
+      <path d="M14 9.5c0 4-2 6.7-5.5 6.7S3 13.5 3 9.5M18 12.4V10"/>
+    </symbol>
+    <symbol id="icon-clipboard" viewBox="0 0 24 24">
+      <rect x="5" y="4" width="14" height="17" rx="2"/>
+      <path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1M9 11h6M9 15h6M9 7h6"/>
+    </symbol>
+    <symbol id="icon-droplet" viewBox="0 0 24 24">
+      <path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>
+    </symbol>
+    <symbol id="icon-flask" viewBox="0 0 24 24">
+      <path d="M9 3h6M10 3v6.2L4.8 18a2 2 0 0 0 1.7 3h11a2 2 0 0 0 1.7-3L14 9.2V3"/>
+      <path d="M7.5 15h9"/>
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24">
+      <path d="M12 20s-7.2-4.5-9.5-9C1 8 2.5 4.5 6 4c2-.3 4 .8 6 3 2-2.2 4-3.3 6-3 3.5.5 5 4 3.5 7-2.3 4.5-9.5 9-9.5 9z"/>
+    </symbol>
+    <symbol id="icon-facebook" viewBox="0 0 24 24">
+      <path d="M14 21v-7h2.5l.5-3H14V9c0-1 .3-1.7 1.7-1.7H17V4.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1V11H8v3h2.6v7z" stroke="none" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24">
+      <rect x="4" y="4" width="16" height="16" rx="5"/>
+      <circle cx="12" cy="12" r="3.6"/>
+      <circle cx="16.6" cy="7.4" r="1" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-twitter" viewBox="0 0 24 24">
+      <path d="M21 5.3c-.7.4-1.5.6-2.3.7.8-.5 1.4-1.3 1.7-2.2-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.6 11.6 0 0 1 2.4 4a4.1 4.1 0 0 0 1.3 5.5c-.6 0-1.3-.2-1.8-.5v.1c0 2 1.4 3.6 3.3 4a4 4 0 0 1-1.8.1 4.1 4.1 0 0 0 3.8 2.9A8.3 8.3 0 0 1 1.4 17.4 11.6 11.6 0 0 0 7.7 19c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1z"/>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- ============================= NAVBAR ============================= -->
 <header class="navbar">
   <div class="nav-inner">
     <a href="#home" class="brand" aria-label="Willowbrook Family Clinic home">
-      <span class="brand-mark" aria-hidden="true">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 21s-7.5-4.6-10-9.3C.4 8.1 2 4.5 5.6 4c2-.3 3.7.6 4.9 2.1C11.7 4.6 13.4 3.7 15.4 4c3.6.5 5.2 4.1 3.6 7.7C16.5 16.4 12 21 12 21z" fill="white" opacity="0.9"/>
-          <path d="M8 12h2.2l1-2.4 1.6 4.8 1-2.4H16" stroke="#0d7a8a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
+      <span class="brand-mark" aria-hidden="true"><svg class="icon"><use href="#icon-leaf"/></svg></span>
       Willowbrook Clinic
     </a>
 
     <nav id="primary-nav" class="nav-links" aria-label="Primary">
       <a href="#home">Home</a>
       <a href="#services">Services</a>
+      <a href="#doctors">Doctors</a>
       <a href="#testimonials">Testimonials</a>
       <a href="#enquiry">Contact</a>
     </nav>
@@ -694,22 +774,22 @@
     <a href="#enquiry" class="btn btn-primary nav-cta">Book an Appointment</a>
 
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
 <!-- ============================= HERO SECTION ============================= -->
 <section id="home" class="hero">
+  <div class="hero-bg-tint" aria-hidden="true"></div>
   <div class="container hero-grid">
     <div class="hero-content">
-      <h1>Compassionate Care, Close to You</h1>
+      <span class="eyebrow">Family Medicine · Est. 2011</span>
+      <h1>Compassionate Care, Rooted in Your Community</h1>
       <p class="subheading">
-        Willowbrook Family Clinic brings together experienced physicians, modern
-        facilities, and a genuinely caring team — so your family always has
-        somewhere trusted to turn.
+        Willowbrook Family Clinic pairs experienced physicians with same-day
+        availability and a team that actually remembers your name — so care
+        feels personal, not processed.
       </p>
       <div class="hero-actions">
         <a href="#enquiry" class="btn btn-primary">Book an Appointment</a>
@@ -717,38 +797,67 @@
       </div>
 
       <div class="trust-strip">
-        <div class="trust-item">
-          <span class="icon-circle" aria-hidden="true">🕒</span>
-          24/7 Support
-        </div>
-        <div class="trust-item">
-          <span class="icon-circle" aria-hidden="true">🩺</span>
-          Certified Doctors
-        </div>
-        <div class="trust-item">
-          <span class="icon-circle" aria-hidden="true">❤</span>
-          10,000+ Patients
-        </div>
+        <div class="trust-item"><strong>15+</strong><span>Years Serving Willowbrook</span></div>
+        <div class="trust-item"><strong>98%</strong><span>Patient Satisfaction</span></div>
+        <div class="trust-item"><strong>30+</strong><span>Physicians &amp; Specialists</span></div>
+        <div class="trust-item"><strong>3</strong><span>Languages Spoken On-Site</span></div>
       </div>
     </div>
 
-    <div class="hero-visual">
-      <div class="hero-card">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 260'%3E%3Crect width='400' height='260' rx='16' fill='%23e6f6f8'/%3E%3Ccircle cx='120' cy='110' r='50' fill='%23bfe4ea'/%3E%3Crect x='190' y='70' width='150' height='16' rx='8' fill='%23bfe4ea'/%3E%3Crect x='190' y='100' width='110' height='12' rx='6' fill='%23d7edf0'/%3E%3Crect x='40' y='180' width='320' height='14' rx='7' fill='%23d7edf0'/%3E%3Crect x='40' y='205' width='220' height='14' rx='7' fill='%23d7edf0'/%3E%3C/svg%3E" alt="Illustration of a friendly clinic consultation room">
-        <div class="hero-card-stat">
-          <div>
-            <strong>15+</strong>
-            Years of Care
-          </div>
-          <div>
-            <strong>98%</strong>
-            Patient Satisfaction
-          </div>
-          <div>
-            <strong>30+</strong>
-            Specialists
-          </div>
-        </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg class="willow-svg" viewBox="0 0 300 320" fill="none">
+        <path class="willow-trunk" d="M150 300 L150 150 C150 130 158 118 168 100"/>
+        <g class="willow-branches">
+          <path d="M168 100 C 130 108 90 130 70 175 C 60 198 55 225 58 250"/>
+          <path d="M168 100 C 150 112 122 128 108 165 C 98 190 96 215 100 240"/>
+          <path d="M168 100 C 190 112 220 132 232 170 C 240 195 240 220 236 245"/>
+          <path d="M168 100 C 205 106 240 122 258 155 C 268 175 270 198 266 220"/>
+        </g>
+        <g class="willow-leaves">
+          <circle cx="58" cy="250" r="4"/><circle cx="70" cy="230" r="3"/><circle cx="52" cy="225" r="3.4"/>
+          <circle cx="100" cy="240" r="4"/><circle cx="112" cy="220" r="3"/><circle cx="90" cy="215" r="3.2"/>
+          <circle cx="236" cy="245" r="4"/><circle cx="222" cy="225" r="3"/><circle cx="245" cy="220" r="3.4"/>
+          <circle cx="266" cy="220" r="4"/><circle cx="252" cy="200" r="3"/><circle cx="270" cy="195" r="3.2"/>
+          <circle cx="168" cy="100" r="4.2"/><circle cx="150" cy="150" r="3"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="wave" style="background:var(--pine-deep)" aria-hidden="true">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C240,58 480,2 720,24 C960,46 1200,6 1440,28 L1440,60 L0,60 Z" fill="var(--mist)"/></svg>
+</div>
+
+<!-- ============================= WHY CHOOSE US ============================= -->
+<section id="why" class="why fade-in">
+  <div class="container">
+    <div class="section-heading centered">
+      <span class="eyebrow">Why Willowbrook</span>
+      <h2>Care That Fits Around Your Life</h2>
+      <p>We built the clinic experience we'd want for our own families: fast to reach, easy to understand, and genuinely attentive.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-tile">
+        <span class="icon-badge" aria-hidden="true"><svg class="icon"><use href="#icon-clock"/></svg></span>
+        <h3>Same-Day Appointments</h3>
+        <p>Most requests confirmed within one business day, with same-day slots held for urgent concerns.</p>
+      </div>
+      <div class="why-tile">
+        <span class="icon-badge" aria-hidden="true"><svg class="icon"><use href="#icon-shield"/></svg></span>
+        <h3>Most Insurance Accepted</h3>
+        <p>In-network with major providers, with transparent self-pay pricing posted for everyone else.</p>
+      </div>
+      <div class="why-tile">
+        <span class="icon-badge" aria-hidden="true"><svg class="icon"><use href="#icon-globe"/></svg></span>
+        <h3>Multilingual Care Team</h3>
+        <p>Care available in English, Spanish, and Mandarin — no translation app required.</p>
+      </div>
+      <div class="why-tile">
+        <span class="icon-badge" aria-hidden="true"><svg class="icon"><use href="#icon-video"/></svg></span>
+        <h3>Telehealth Follow-Ups</h3>
+        <p>Skip the waiting room for routine follow-ups, results, and prescription renewals.</p>
       </div>
     </div>
   </div>
@@ -756,42 +865,112 @@
 
 <!-- ============================= SERVICES ============================= -->
 <section id="services" class="services fade-in">
-  <div class="container">
-    <div class="section-heading">
-      <span class="eyebrow">What We Offer</span>
-      <h2>Comprehensive Care Under One Roof</h2>
-      <p>From routine check-ups to specialist referrals, our team is equipped to support your family's health at every stage of life.</p>
+  <div class="container services-layout">
+    <div>
+      <div class="section-heading">
+        <span class="eyebrow">What We Offer</span>
+        <h2>Comprehensive Care Under One Roof</h2>
+        <p>From routine check-ups to ongoing condition management, our team supports your family's health at every stage of life.</p>
+      </div>
+
+      <ul class="service-list">
+        <li>
+          <div class="service-row">
+            <span class="icon-badge" aria-hidden="true"><svg class="icon"><use href="#icon-stethoscope"/></svg></span>
+            <div>
+              <h3>General Consultation</h3>
+              <p>Same-day appointments with experienced family physicians for everyday health concerns.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="service-row">
+            <span class="icon-badge" aria-hidden="true"><svg class="icon"><use href="#icon-clipboard"/></svg></span>
+            <div>
+              <h3>Specialist Referrals</h3>
+              <p>Fast-tracked access to trusted specialists across cardiology, dermatology, and more.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="service-row">
+            <span class="icon-badge" aria-hidden="true"><svg class="icon"><use href="#icon-droplet"/></svg></span>
+            <div>
+              <h3>Vaccinations</h3>
+              <p>Up-to-date immunization programs for children and adults, in a comfortable setting.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="service-row">
+            <span class="icon-badge" aria-hidden="true"><svg class="icon"><use href="#icon-flask"/></svg></span>
+            <div>
+              <h3>Lab &amp; Diagnostics</h3>
+              <p>On-site testing with quick turnaround so you get answers without the wait.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="service-row">
+            <span class="icon-badge" aria-hidden="true"><svg class="icon"><use href="#icon-heart"/></svg></span>
+            <div>
+              <h3>Chronic Care Management</h3>
+              <p>Ongoing support for diabetes, hypertension, and other conditions that need a consistent care team.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
 
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon" aria-hidden="true">🩺</div>
-        <h3>General Consultation</h3>
-        <p>Same-day appointments with experienced family physicians for everyday health concerns.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon" aria-hidden="true">🧑‍⚕️</div>
-        <h3>Specialist Referrals</h3>
-        <p>Fast-tracked access to trusted specialists across cardiology, dermatology, and more.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon" aria-hidden="true">💉</div>
-        <h3>Vaccinations</h3>
-        <p>Up-to-date immunization programs for children and adults, in a comfortable setting.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon" aria-hidden="true">🧪</div>
-        <h3>Lab & Diagnostics</h3>
-        <p>On-site testing with quick turnaround so you get answers without the wait.</p>
-      </div>
+    <aside class="services-note">
+      <span class="eyebrow">Not sure where to start?</span>
+      <h3>Talk to our care coordinator</h3>
+      <p>Tell us what's going on and we'll point you to the right visit type — no guessing required.</p>
+      <a href="#enquiry" class="btn btn-outline-pine btn-block">Request a Callback</a>
+    </aside>
+  </div>
+</section>
+
+<div class="wave" style="background:var(--paper)" aria-hidden="true">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C240,4 480,56 720,32 C960,10 1200,50 1440,26 L1440,60 L0,60 Z" fill="var(--pine-deep)"/></svg>
+</div>
+
+<!-- ============================= MEET THE DOCTORS ============================= -->
+<section id="doctors" class="doctors fade-in">
+  <div class="container">
+    <div class="section-heading centered">
+      <span class="eyebrow">Meet the Team</span>
+      <h2>The People Behind Your Care</h2>
+      <p>A small enough team that they know your history — a big enough one that you're never stuck waiting weeks.</p>
+    </div>
+
+    <div class="doctors-grid">
+      <article class="doctor-card">
+        <div class="doctor-avatar" style="background:var(--sage);">ER</div>
+        <h3>Dr. Elena Reyes</h3>
+        <span class="doctor-specialty">Family Medicine</span>
+        <p>Focuses on whole-family primary care, from pediatric checkups to geriatric wellness visits.</p>
+      </article>
+      <article class="doctor-card">
+        <div class="doctor-avatar" style="background:var(--marigold);">MW</div>
+        <h3>Dr. Marcus Whitfield</h3>
+        <span class="doctor-specialty">Internal Medicine</span>
+        <p>Specializes in chronic condition management, preventive screening, and long-term care plans.</p>
+      </article>
+      <article class="doctor-card">
+        <div class="doctor-avatar" style="background:var(--sage);">PN</div>
+        <h3>Dr. Priya Nandan</h3>
+        <span class="doctor-specialty">Pediatrics</span>
+        <p>Dedicated to gentle, thorough care for infants through teens, and calm nerves for parents.</p>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- ============================= TESTIMONIALS ============================= -->
-<section id="testimonials" class="fade-in">
+<section id="testimonials" class="testimonials fade-in">
   <div class="container">
-    <div class="section-heading">
+    <div class="section-heading centered">
       <span class="eyebrow">Patient Stories</span>
       <h2>What Our Patients Say</h2>
       <p>Real experiences from families who trust Willowbrook Clinic with their care.</p>
@@ -799,50 +978,46 @@
 
     <div class="testimonials-grid">
       <article class="testimonial-card">
-        <div class="testimonial-stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
+        <div class="rating" role="img" aria-label="Rated 5 out of 5 stars">
+          <svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-filled"><use href="#icon-star"/></svg>
+        </div>
         <p class="testimonial-quote">"Dr. Reyes took the time to actually listen. First clinic where I didn't feel rushed out the door."</p>
         <div class="testimonial-person">
-          <div class="avatar" style="background:#0d7a8a;">SM</div>
-          <div>
-            <div class="person-name">Sarah Mitchell</div>
-            <div class="person-role">Patient since 2021</div>
-          </div>
+          <div class="avatar" style="background:var(--pine);">SM</div>
+          <div><div class="person-name">Sarah Mitchell</div><div class="person-role">Patient since 2021</div></div>
         </div>
       </article>
 
       <article class="testimonial-card">
-        <div class="testimonial-stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
+        <div class="rating" role="img" aria-label="Rated 5 out of 5 stars">
+          <svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-filled"><use href="#icon-star"/></svg>
+        </div>
         <p class="testimonial-quote">"Booking online was effortless and the reminder texts meant I never missed a follow-up."</p>
         <div class="testimonial-person">
-          <div class="avatar" style="background:#f26b38;">JT</div>
-          <div>
-            <div class="person-name">James Tan</div>
-            <div class="person-role">Patient since 2019</div>
-          </div>
+          <div class="avatar" style="background:var(--marigold-deep);">JT</div>
+          <div><div class="person-name">James Tan</div><div class="person-role">Patient since 2019</div></div>
         </div>
       </article>
 
       <article class="testimonial-card">
-        <div class="testimonial-stars" aria-label="Rated 4.5 out of 5 stars">★★★★☆</div>
+        <div class="rating" role="img" aria-label="Rated 4.5 out of 5 stars">
+          <svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-empty"><use href="#icon-star"/></svg>
+        </div>
         <p class="testimonial-quote">"Brought my daughter in for her vaccinations — the staff were so patient and kind with her."</p>
         <div class="testimonial-person">
-          <div class="avatar" style="background:#2e8b57;">AR</div>
-          <div>
-            <div class="person-name">Aisha Rahman</div>
-            <div class="person-role">Patient since 2022</div>
-          </div>
+          <div class="avatar" style="background:var(--pine-soft);">AR</div>
+          <div><div class="person-name">Aisha Rahman</div><div class="person-role">Patient since 2022</div></div>
         </div>
       </article>
 
       <article class="testimonial-card">
-        <div class="testimonial-stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
+        <div class="rating" role="img" aria-label="Rated 5 out of 5 stars">
+          <svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-filled"><use href="#icon-star"/></svg><svg class="icon is-filled"><use href="#icon-star"/></svg>
+        </div>
         <p class="testimonial-quote">"The lab results came back the same day, and the doctor called personally to walk me through them."</p>
         <div class="testimonial-person">
-          <div class="avatar" style="background:#6a5acd;">DK</div>
-          <div>
-            <div class="person-name">David Kim</div>
-            <div class="person-role">Patient since 2020</div>
-          </div>
+          <div class="avatar" style="background:var(--ink);">DK</div>
+          <div><div class="person-name">David Kim</div><div class="person-role">Patient since 2020</div></div>
         </div>
       </article>
     </div>
@@ -852,7 +1027,7 @@
 <!-- ============================= ENQUIRY FORM ============================= -->
 <section id="enquiry" class="enquiry fade-in">
   <div class="container">
-    <div class="section-heading">
+    <div class="section-heading centered">
       <span class="eyebrow">Get in Touch</span>
       <h2>Request an Appointment</h2>
       <p>Fill in your details and our care team will confirm your appointment within one business day.</p>
@@ -860,7 +1035,7 @@
 
     <div class="form-wrapper">
       <div id="formSuccess" class="form-success" role="status" aria-live="polite">
-        <span aria-hidden="true">✅</span>
+        <svg class="icon" aria-hidden="true"><use href="#icon-heart"/></svg>
         <span id="formSuccessText">Thank you! We'll contact you shortly.</span>
       </div>
 
@@ -871,19 +1046,16 @@
             <input type="text" id="fullName" name="fullName" autocomplete="name" aria-describedby="fullNameError" required>
             <span class="field-error" id="fullNameError"></span>
           </div>
-
           <div class="form-field">
             <label for="email">Email <span class="required-mark">*</span></label>
             <input type="email" id="email" name="email" autocomplete="email" aria-describedby="emailError" required>
             <span class="field-error" id="emailError"></span>
           </div>
-
           <div class="form-field">
             <label for="phone">Phone <span class="required-mark">*</span></label>
             <input type="tel" id="phone" name="phone" autocomplete="tel" aria-describedby="phoneError" required>
             <span class="field-error" id="phoneError"></span>
           </div>
-
           <div class="form-field">
             <label for="preferredDate">Preferred Date</label>
             <input type="date" id="preferredDate" name="preferredDate" aria-describedby="preferredDateError">
@@ -913,11 +1085,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="brand">
-          <span class="brand-mark" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 21s-7.5-4.6-10-9.3C.4 8.1 2 4.5 5.6 4c2-.3 3.7.6 4.9 2.1C11.7 4.6 13.4 3.7 15.4 4c3.6.5 5.2 4.1 3.6 7.7C16.5 16.4 12 21 12 21z" fill="white" opacity="0.9"/>
-            </svg>
-          </span>
+          <span class="brand-mark" aria-hidden="true"><svg class="icon"><use href="#icon-leaf"/></svg></span>
           Willowbrook Clinic
         </div>
         <p>Trusted, compassionate healthcare for the whole family — every visit, every time.</p>
@@ -928,6 +1096,7 @@
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#services">Services</a></li>
+          <li><a href="#doctors">Doctors</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#enquiry">Contact</a></li>
         </ul>
@@ -945,15 +1114,9 @@
       <div class="footer-col">
         <h4>Follow Us</h4>
         <div class="social-links">
-          <a href="#" aria-label="Willowbrook Clinic on Facebook">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
-          </a>
-          <a href="#" aria-label="Willowbrook Clinic on Instagram">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 2c2.7 0 3 0 4.1.06 1.1.05 1.8.2 2.4.45.7.27 1.2.6 1.7 1.1.5.5.9 1 1.1 1.7.24.6.4 1.3.45 2.4.06 1.1.06 1.4.06 4.1s0 3-.06 4.1c-.05 1.1-.2 1.8-.45 2.4a4.6 4.6 0 0 1-1.1 1.7c-.5.5-1 .9-1.7 1.1-.6.24-1.3.4-2.4.45-1.1.06-1.4.06-4.1.06s-3 0-4.1-.06c-1.1-.05-1.8-.2-2.4-.45a4.6 4.6 0 0 1-1.7-1.1 4.6 4.6 0 0 1-1.1-1.7c-.24-.6-.4-1.3-.45-2.4C2 15 2 14.7 2 12s0-3 .06-4.1c.05-1.1.2-1.8.45-2.4.27-.7.6-1.2 1.1-1.7.5-.5 1-.9 1.7-1.1.6-.24 1.3-.4 2.4-.45C9 2 9.3 2 12 2zm0 1.8c-2.6 0-2.9 0-4 .06-.9.04-1.4.18-1.7.3-.4.16-.7.35-1 .65-.3.3-.5.6-.65 1-.12.3-.26.8-.3 1.7-.05 1.1-.06 1.4-.06 4s0 2.9.06 4c.04.9.18 1.4.3 1.7.16.4.35.7.65 1 .3.3.6.5 1 .65.3.12.8.26 1.7.3 1.1.05 1.4.06 4 .06s2.9 0 4-.06c.9-.04 1.4-.18 1.7-.3.4-.16.7-.35 1-.65.3-.3.5-.6.65-1 .12-.3.26-.8.3-1.7.05-1.1.06-1.4.06-4s0-2.9-.06-4c-.04-.9-.18-1.4-.3-1.7a2.8 2.8 0 0 0-.65-1 2.8 2.8 0 0 0-1-.65c-.3-.12-.8-.26-1.7-.3-1.1-.06-1.4-.06-4-.06zm0 3.2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm5.2-2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
-          </a>
-          <a href="#" aria-label="Willowbrook Clinic on Twitter">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M22 5.9c-.7.3-1.5.5-2.3.6.8-.5 1.4-1.3 1.7-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.7 11.7 0 0 1 3.2 4.6a4.1 4.1 0 0 0 1.3 5.5c-.6 0-1.3-.2-1.8-.5v.1c0 2 1.4 3.6 3.3 4a4.1 4.1 0 0 1-1.8.07 4.1 4.1 0 0 0 3.8 2.9A8.3 8.3 0 0 1 2 18.4a11.6 11.6 0 0 0 6.3 1.9c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1z"/></svg>
-          </a>
+          <a href="#" aria-label="Willowbrook Clinic on Facebook"><svg class="icon"><use href="#icon-facebook"/></svg></a>
+          <a href="#" aria-label="Willowbrook Clinic on Instagram"><svg class="icon"><use href="#icon-instagram"/></svg></a>
+          <a href="#" aria-label="Willowbrook Clinic on Twitter"><svg class="icon"><use href="#icon-twitter"/></svg></a>
         </div>
       </div>
     </div>
@@ -978,7 +1141,6 @@
       navToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
-    // Close mobile menu after a nav link is clicked
     navLinks.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') {
         navLinks.classList.remove('is-open');
@@ -997,10 +1159,8 @@
           }
         });
       }, { threshold: 0.15 });
-
       fadeEls.forEach(function (el) { observer.observe(el); });
     } else {
-      // Fallback: no IntersectionObserver support, just show everything
       fadeEls.forEach(function (el) { el.classList.add('is-visible'); });
     }
 
@@ -1044,7 +1204,7 @@
       preferredDate: {
         el: document.getElementById('preferredDate'),
         errorEl: document.getElementById('preferredDateError'),
-        validate: function () { return ''; } // optional field
+        validate: function () { return ''; }
       }
     };
 
@@ -1057,7 +1217,6 @@
       }
     }
 
-    // Clear a field's error as the user types/corrects it
     Object.keys(fields).forEach(function (key) {
       var field = fields[key];
       field.el.addEventListener('input', function () {
@@ -1068,7 +1227,6 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-
       formSuccess.classList.remove('is-visible');
 
       var isValid = true;
@@ -1080,7 +1238,6 @@
       });
 
       if (!isValid) {
-        // Focus the first invalid field for accessibility
         var firstInvalidKey = Object.keys(fields).find(function (key) {
           return fields[key].errorEl.textContent;
         });

@@ -592,6 +592,23 @@
   .form-success.is-visible { display: flex; }
   .form-success .icon { stroke: #1E6B37; }
 
+  .form-error {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    background: #FDF1EF;
+    border: 1px solid #F0C4BC;
+    color: #A6371F;
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+  .form-error.is-visible { display: flex; }
+
+  .btn[disabled] { opacity: 0.7; cursor: not-allowed; }
+
   .form-note { font-size: 0.82rem; color: var(--text-muted); text-align: center; }
 
   /* ============================= FOOTER ============================= */
@@ -1034,12 +1051,17 @@
     </div>
 
     <div class="form-wrapper">
-      <div id="formSuccess" class="form-success" role="status" aria-live="polite">
+      <div id="formSuccess" class="form-success" role="status" aria-live="polite" tabindex="-1">
         <svg class="icon" aria-hidden="true"><use href="#icon-heart"/></svg>
         <span id="formSuccessText">Thank you! We'll contact you shortly.</span>
       </div>
 
+      <div id="formError" class="form-error" role="alert" aria-live="assertive" tabindex="-1">
+        <span id="formErrorText">Something went wrong sending your request. Please try again or call us at (555) 123-4567.</span>
+      </div>
+
       <form id="enquiryForm" novalidate>
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form-grid two-col">
           <div class="form-field">
             <label for="fullName">Full Name <span class="required-mark">*</span></label>
@@ -1071,7 +1093,7 @@
         </div>
 
         <div class="form-footer">
-          <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+          <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Submit Request</button>
           <p class="form-note">By submitting, you agree to be contacted regarding your appointment request. We never share your information with third parties.</p>
         </div>
       </form>
@@ -1168,8 +1190,12 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
     /* ---------- Enquiry form validation & submission ---------- */
+    var FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/christabelletan21@gmail.com';
+
     var form = document.getElementById('enquiryForm');
     var formSuccess = document.getElementById('formSuccess');
+    var formError = document.getElementById('formError');
+    var submitBtn = document.getElementById('submitBtn');
 
     var fields = {
       fullName: {
@@ -1228,6 +1254,10 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       formSuccess.classList.remove('is-visible');
+      formError.classList.remove('is-visible');
+
+      // Honeypot: if this hidden field got filled in, silently treat as spam and stop.
+      if (form.elements['_honey'] && form.elements['_honey'].value) return;
 
       var isValid = true;
       Object.keys(fields).forEach(function (key) {
@@ -1246,29 +1276,45 @@
       }
 
       var formData = {
-        fullName: fields.fullName.el.value.trim(),
+        name: fields.fullName.el.value.trim(),
         email: fields.email.el.value.trim(),
         phone: fields.phone.el.value.trim(),
         preferredDate: fields.preferredDate.el.value,
         message: document.getElementById('message').value.trim(),
-        submittedAt: new Date().toISOString()
+        submittedAt: new Date().toISOString(),
+        _subject: 'New appointment request — Willowbrook Clinic',
+        _template: 'table',
+        _captcha: 'false'
       };
 
-      // ---------------------------------------------------------------
-      // TODO: Replace this console.log with a real API call, e.g.:
-      //
-      // fetch('/api/appointments', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
-      // });
-      // ---------------------------------------------------------------
-      console.log('Appointment enquiry submitted:', formData);
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
 
-      formSuccess.classList.add('is-visible');
-      form.reset();
-      Object.keys(fields).forEach(function (key) { setFieldError(fields[key], ''); });
-      formSuccess.focus && formSuccess.focus();
+      fetch(FORMSUBMIT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+        .then(function (response) {
+          if (!response.ok) throw new Error('FormSubmit responded with ' + response.status);
+          return response.json();
+        })
+        .then(function () {
+          console.log('Appointment enquiry submitted via FormSubmit:', formData);
+          formSuccess.classList.add('is-visible');
+          form.reset();
+          Object.keys(fields).forEach(function (key) { setFieldError(fields[key], ''); });
+          formSuccess.focus && formSuccess.focus();
+        })
+        .catch(function (error) {
+          console.error('FormSubmit submission failed:', error);
+          formError.classList.add('is-visible');
+          formError.focus && formError.focus();
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Request';
+        });
     });
   })();
 </script>

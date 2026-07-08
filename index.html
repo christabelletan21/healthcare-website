@@ -1299,7 +1299,10 @@
           if (!response.ok) throw new Error('FormSubmit responded with ' + response.status);
           return response.json();
         })
-        .then(function () {
+        .then(function (result) {
+          if (!result || result.success === 'false' || result.success === false) {
+            throw new Error((result && result.message) || 'FormSubmit did not confirm delivery.');
+          }
           console.log('Appointment enquiry submitted via FormSubmit:', formData);
           formSuccess.classList.add('is-visible');
           form.reset();
